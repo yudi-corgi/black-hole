@@ -1,0 +1,23 @@
+import { sidebar } from "vuepress-theme-hope";
+
+export default sidebar({
+  "/": [
+    "",
+    /*{
+      text: "如何使用",        // 组名
+      icon: "laptop-code",    // 图标
+      prefix: "demo/",        // 前缀 url
+      link: "demo/",          // 文章链接
+      children: "structure",  // 子节点
+      collapsible: true       // 是否可折叠，默认 false
+    },*/
+    {
+      text: "文章",
+      icon: "book",
+      prefix: "posts/",
+      children: "structure",
+      collapsible: true
+    },
+    "intro"
+  ],
+});
