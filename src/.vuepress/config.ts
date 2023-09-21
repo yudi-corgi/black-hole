@@ -8,8 +8,8 @@ export default defineUserConfig({
   base: "/black-hole/",
 
   lang: "zh-CN",
-  title: "电动马达臀",
-  description: "VP 首次试用",
+  title: "Black Hole",
+  description: "个人博客",
 
   theme,
 

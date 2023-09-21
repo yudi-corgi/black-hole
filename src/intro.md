@@ -1,18 +1,18 @@
 ---
 icon: circle-info
-cover: /assets/images/cover3.jpg 
+cover: /assets/images/bob_cover1.jpg 
 ---
 
-# 关于我
+# 关于作者
 
-Java 业务开发一枚 (●ˇ∀ˇ●)
+Java 开发一枚 (●ˇ∀ˇ●) ~，博客刚切换，一些配置还有内容还需要时间慢慢缝补。
 
 
 
 # 博客历史
 
-- Hexo 建站
-- 编写第一篇文章
-- 停更
-- 迁移 VuePress
+- 2020.07.08，使用 Hexo 首次建立个人博客，也在同一天发布了第一篇文章
+- 2020.08.09，因工作琐事，加上深感自己对技术的理解还不够深入，经验也不够充足，所以停更，更专注地学习各项技术
+- 2023.09.21，时隔三年，重拾博客，从 Hexo 转向 VuePress
+- Continue...
 

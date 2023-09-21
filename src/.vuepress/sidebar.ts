@@ -12,9 +12,16 @@ export default sidebar({
       collapsible: true       // 是否可折叠，默认 false
     },*/
     {
-      text: "文章",
+      text: "Java",
       icon: "book",
-      prefix: "posts/",
+      prefix: "posts/java/",
+      children: "structure",
+      collapsible: true
+    },
+    {
+      text: "框架",
+      icon: "book",
+      prefix: "posts/framework/",
       children: "structure",
       collapsible: true
     },

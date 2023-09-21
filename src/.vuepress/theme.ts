@@ -49,8 +49,8 @@ export default hopeTheme({
 
   // 博客内容
   blog: {
-    // avatar: "/logo.ico",
-    description: "Low 炮",
+    avatar: "/Bob.png",
+    description: "Java 开发 ~.~ 还在“泥塘”中挣扎",
     intro: "/intro.html",
     timeline: "时间曲线",
     medias: {

@@ -52,8 +52,8 @@ export default navbar([
   {
     text: "精选文章",
     icon: "ic:round-star",
-    prefix: "/posts/",
-    children: ["Spring 事务同步.md"]
+    prefix: "/posts/framework/spring/",
+    children: ["spring_transaction_synchronization.md"]
   },
   {
     text: "Java",
@@ -65,4 +65,9 @@ export default navbar([
     icon: "mdi:electron-framework",
     link: "https://xiaolincoding.com/mysql/"
   },
+  {
+    text: "关于作者",
+    icon: "openmoji:black-hole",
+    link: "/intro.md"
+  }
 ]);
