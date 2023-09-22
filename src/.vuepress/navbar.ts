@@ -51,18 +51,19 @@ export default navbar([
   // },
   {
     text: "精选文章",
-    icon: "ic:round-star",
+    icon: "fluent-emoji-flat:star",
     prefix: "/posts/framework/spring/",
     children: ["spring_transaction_synchronization.md"]
   },
   {
     text: "Java",
-    icon: "cib:java",
+    icon: "devicon:java",
     link: "https://xiaolincoding.com/mysql/"
   },
   {
     text: "框架",
-    icon: "mdi:electron-framework",
+    // icon: "mdi:electron-framework",
+    icon: "icon-park:blocks-and-arrows",
     link: "https://xiaolincoding.com/mysql/"
   },
   {
