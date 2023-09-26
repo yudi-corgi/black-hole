@@ -1,5 +1,5 @@
 {
     "rewrites": [
-        { "source": "/(.*)", "destination": "/black-hole/$1" }
+        { "source": "/black-hole/(.*)", "destination": "/$1" }
     ]
 }
