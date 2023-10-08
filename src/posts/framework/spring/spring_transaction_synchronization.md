@@ -97,6 +97,14 @@ public class TxController {
         save();
         // 注册事务同步对象
         TransactionSynchronizationManager.registerSynchronization(new TxSyncDemo("事务同步测试"));
+        
+        // 当然这里也可以直接通过匿名类的方式创建，而无需通过继承对象
+        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+            @Override
+            public void afterCommit() {
+                System.out.println("提交后执行");
+            }
+        });
     }
 }
 ```
