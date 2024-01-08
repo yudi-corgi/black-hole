@@ -8,7 +8,7 @@ tag:
 date: 2023-08-01
 sticky: true
 category: Cache
-cover: /assets/images/minions_cover1.jpg
+cover: /assets/images/minions_cover7.jpg
 icon: octicon:cache-16
 pageview: false
 isOriginal: true
