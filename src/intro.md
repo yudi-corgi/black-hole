@@ -3,7 +3,7 @@ icon: circle-info
 cover: /assets/images/bob_cover1.jpg
 ---
 
-# 关于
+# 关于作者
 
 Java 开发一枚 (●ˇ∀ˇ●) ~，博客刚切换，一些配置还有内容还需要时间慢慢缝补。
 
