@@ -25,6 +25,13 @@ export default sidebar({
       children: "structure",
       collapsible: true
     },
+    {
+      text: "开发技巧",
+      icon: "book",
+      prefix: "posts/dev_experience/",
+      children: "structure",
+      collapsible: true
+    },
     "intro"
   ],
 });
