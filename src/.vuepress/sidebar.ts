@@ -32,6 +32,13 @@ export default sidebar({
       children: "structure",
       collapsible: true
     },
+    {
+      text: "杂谈",
+      icon: "book",
+      prefix: "posts/reprint/",
+      children: "structure",
+      collapsible: true
+    },
     "intro"
   ],
 });
