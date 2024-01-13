@@ -10,7 +10,6 @@ sticky: true
 category: Java
 cover: /assets/images/minions_cover5.jpg
 icon: fluent-mdl2:connect-virtual-machine
-pageview: false
 isOriginal: true
 ---
 

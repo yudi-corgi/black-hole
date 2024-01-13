@@ -12,10 +12,6 @@ export default defineUserConfig({
   description: "个人博客",
   
   theme,
-  // theme: hopeTheme({
-    // 移除编辑此页连接
-    // editLink: false,
-  // }),
 
   // 搜索插件
   plugins: [

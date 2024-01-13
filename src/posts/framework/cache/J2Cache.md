@@ -5,12 +5,11 @@ description: 介绍 J2Cache 的背景作用、原理、使用示例
 tag: 
   - Cache
   - Redis
-date: 2023-08-01
+date: 2023-09-23
 sticky: true
 category: Cache
 cover: /assets/images/minions_cover7.jpg
 icon: octicon:cache-16
-pageview: false
 isOriginal: true
 ---
 

@@ -66,6 +66,7 @@ export default navbar([
     icon: "icon-park:blocks-and-arrows",
     link: "https://xiaolincoding.com/mysql/"
   },
+  
   {
     text: "关于作者",
     icon: "openmoji:black-hole",

@@ -10,7 +10,6 @@ sticky: true
 category: Spring
 cover: /assets/images/minions_cover1.jpg
 icon: devicon:spring
-pageview: false
 isOriginal: true
 ---
 

@@ -11,7 +11,6 @@ sticky: true
 category: Java
 cover: /assets/images/minions_cover4.jpg
 icon: fe:hash
-pageview: false
 isOriginal: true
 ---
 

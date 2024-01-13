@@ -11,7 +11,6 @@ sticky: true
 category: Java
 cover: /assets/images/minions_cover3.jpg
 icon: ph:hash-bold
-pageview: false
 isOriginal: true
 ---
 

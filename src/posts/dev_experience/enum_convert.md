@@ -4,12 +4,11 @@ title: 枚举字典的巧用
 description: 介绍基于 MP 的枚举字典转化和封装抽象
 tag: 
   - 开发技巧
-date: 2023-08-10
+date: 2023-09-26
 sticky: true
 category: 开发技巧
 cover: /assets/images/stuart_cover1.jpg
 icon: material-symbols:dictionary-outline
-pageview: false
 isOriginal: true
 ---
 

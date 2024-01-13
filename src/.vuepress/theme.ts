@@ -47,10 +47,13 @@ export default hopeTheme({
   // 代码高亮
   // plugin.prismjs: false,
 
+  // 取消页面编辑
+  editLink: false,
+
   // 博客内容
   blog: {
     avatar: "/Bob.png",
-    description: "Java 开发 ~.~ 还在“泥塘”中挣扎",
+    description: "Javaer ~.~ 还在“泥塘”中挣扎",
     intro: "/intro.html",
     timeline: "时间曲线",
     medias: {
@@ -87,7 +90,11 @@ export default hopeTheme({
       // Zhihu: "https://example.com",
       // MrHope: ["https://mister-hope.com", MR_HOPE_AVATAR],
     },
+    articleInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"]
   },
+
+  // 文章页面信息
+  pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
   encrypt: {
     config: {
