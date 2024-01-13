@@ -11,9 +11,9 @@ cover: /assets/images/minions_cover8.jpg
 icon: devicon-plain:oauth
 ---
 
-# 写在前头
+## 写在前头
 
-本篇是 [Why is OAuth still hard in 2023?](https://www.nango.dev/blog/why-is-oauth-still-hard)一文的中文翻译（由[沉浸式翻译](https://immersivetranslate.com/)提供），文章内容翔实，说明了 OAuth 的复杂性、安全性、实际应用等方面的问题。以下是太长不看版（由 AI 整理）：
+本篇是 [Why is OAuth still hard in 2023?](https://www.nango.dev/blog/why-is-oauth-still-hard)一文的中文翻译（由[沉浸式翻译](https://immersivetranslate.com/)提供并优化了下排版），文章内容翔实，说明了 OAuth 的复杂性、安全性、实际应用困难等方面的问题。以下是太长不看版（由 AI 整理）：
 
 这篇文章讨论了为什么 OAuth 在 2023 年仍然难以实现。作者们通过为 50 个最受欢迎的 API 实现 OAuth 的经验得出结论，OAuth 实际应用中的体验类似于 2008 年的 JavaScript 浏览器 API。尽管有一个通用的共识关于如何实现 OAuth，但每个 API 实际上都有自己对标准的解释、实现上的怪癖、非标准行为和扩展。
 
@@ -28,9 +28,9 @@ icon: devicon-plain:oauth
 
 文章最后提到，作者正在开发一个名为 Nango 的开源服务，它提供了预构建的 OAuth 流程、安全的令牌存储和自动令牌刷新功能，支持超过 90 个 OAuth API。欢迎读者尝试使用并提供反馈。
 
-**以下是原文翻译：**
+**以下是原文+翻译：**
 
-# Why is OAuth still hard in 2023? <br>为什么 2023 年 OAuth 仍然很难？
+## 为什么 2023 年 OAuth 仍然很难？<br> Why is OAuth still hard in 2023?
 
 We implemented OAuth for the 50 most popular APIs. TL;DR: It is still a mess.
 我们为 50 个最流行的 API 实现了 OAuth。TL;DR（Tong long, did't read）：仍然是一团糟。
@@ -44,7 +44,7 @@ You might conclude that, armed with a client library, you would be able to imple
 If you manage, please email us — we’d like to treat you to a delicious dinner and hear how you did it.
 如果您成功了，请给我们发电子邮件——我们很乐意请您享用一顿美味的晚餐，并听听您是如何做到的。
 
-### OAuth in practice <br>OAuth 实践
+### OAuth 实践 <br>OAuth in practice
 
 We implemented OAuth for the 50 most popular APIs, such as Google (Gmail, Calendar, Sheets etc.), HubSpot, Shopify, Salesforce, Stripe, Jira, Slack, Microsoft (Azure, Outlook, OneDrive), LinkedIn, Facebook and [other OAuth APIs.](https://docs.nango.dev/providers)‍
 我们为 50 个最流行的 API 实现了 OAuth，例如 Google（Gmail、日历、表格等）、HubSpot、Shopify、Salesforce、Stripe、Jira、Slack、Microsoft（Azure、Outlook、OneDrive）、LinkedIn、Facebook 和其他 OAuth蜜蜂
@@ -55,7 +55,7 @@ Our conclusion: The real-world OAuth experience is comparable to JavaScript brow
 If it weren’t so annoying, it would be quite funny. Let’s dive in!
 如果不是那么烦人的话，那就很有趣了。让我们深入了解一下！
 
-## Problem 1: The OAuth standard is just too big and complex <br>问题 1：OAuth 标准太大且复杂
+## 问题 1：OAuth 标准太大且复杂 <br>Problem 1: The OAuth standard is just too big and complex
 
 > “This API also uses OAuth 2.0, and we already did that a few weeks ago. I should be done by tomorrow.”
 > “这个 API 还使用 OAuth 2.0，我们几周前就已经这样做了。我应该在明天之前完成。”
@@ -90,7 +90,7 @@ Most teams building public APIs seem to agree as well. Instead of implementing a
 The trouble is that everybody has a slightly different idea of which subset of OAuth is relevant for them, so you end up with lots of different (sub-) implementations.
 问题在于，每个人对于 OAuth 的哪个子集与他们相关的想法都略有不同，因此最终会得到许多不同的（子）实现。
 
-## Problem 2: Everybody’s OAuth is different in subtle ways <br>问题 2：每个人的 OAuth 都有细微的差别
+## 问题 2：每个人的 OAuth 都有细微的差别 <br>Problem 2: Everybody’s OAuth is different in subtle ways
 
 As every API implements a different subset of OAuth, you quickly get into a situation where you are forced to read their long pages of OAuth docs in detail:
 由于每个 API 都实现 OAuth 的不同子集，因此您很快就会陷入被迫详细阅读其长页 OAuth 文档的情况：
@@ -133,7 +133,7 @@ We could go on for a long time, but we think you probably get the point by now.
 
 ![OAuth is too complex; let’s make a simpler version of OAuth that has everything we need! ©XKCD<br>OAuth太复杂；让我们制作一个更简单的 OAuth 版本，其中包含我们需要的一切！ ©XKCD](https://assets-global.website-files.com/63cb480c27e7bc98c7ec69cf/63f7310639759c5c1a13a423_Untitled.png)
 
-## Problem 3: Many APIs add nonstandard extensions to OAuth <br>问题 3：许多 API 向 OAuth 添加非标准扩展
+## 问题 3：许多 API 向 OAuth 添加非标准扩展 <br>Problem 3: Many APIs add nonstandard extensions to OAuth
 
 Even though the OAuth standard is vast, many APIs still seem to find gaps in it for features they need. A common issue we see is that you need some data in addition to the access_token to work with the API. Wouldn’t it be neat if this additional data could be returned to you together with the access_token in the OAuth flow?
 尽管 OAuth 标准很庞大，但许多 API 似乎仍然在其中找到了它们所需功能的空白。我们看到的一个常见问题是，除了 access_token 之外，您还需要一些数据才能使用 API。如果这些附加数据可以与 OAuth 流程中的 access_token 一起返回给您，岂不是很完美？
@@ -158,7 +158,7 @@ Here’s a small list of nonstandard extensions we have seen:
 For the sake of brevity and simplicity, we’re skipping the many not-really-standard OAuth flows we have encountered.
 为了简洁起见，我们跳过了我们遇到的许多不真正标准的 OAuth 流程。
 
-## Problem 4: “invalid_request” — debugging OAuth flows is hard <br>问题 4：“invalid_request”——调试 OAuth 流程很困难
+## 问题 4：“invalid_request”——调试 OAuth 流程很困难 <br>Problem 4: “invalid_request” — debugging OAuth flows is hard
 
 Debugging distributed systems is always hard. It’s harder when the service you’re working with uses broad, generic error messages.
 调试分布式系统总是很困难。当您使用的服务使用广泛的通用错误消息时，事情会变得更加困难。
@@ -179,7 +179,7 @@ Some flows also break for, what seem to be, random reasons: LinkedIn OAuth, for 
 Another common mistake is sending scopes that don’t match the ones you preregistered with the app. (Preregister scopes? Yes, a lot of APIs these days demand that.) This often results in a generic error message about there being an issue with scopes. Duh.
 另一个常见的错误是发送的范围与您在应用程序中预先注册的范围不匹配。 （预注册范围？是的，现在很多 API 都要求这样做。）这通常会导致出现有关范围存在问题的通用错误消息。
 
-## Problem 5: Cumbersome approvals to build on top of APIs <br>问题 5：基于 API 构建的审批繁琐
+## 问题 5：基于 API 构建的审批繁琐 <br>Problem 5: Cumbersome approvals to build on top of APIs
 
 The truth is, if you build toward some other system by using their API, you’re probably in the weaker position. Your customers are asking for the integration because they’re already using the other system. Now you need to make them happy.
 事实是，如果您使用其他系统的 API 进行构建，您可能会处于较弱的位置。您的客户要求集成，因为他们已经在使用其他系统。现在你需要让他们开心。
@@ -203,7 +203,7 @@ But some notorious examples can take months to complete, and some even require y
 - Xero is a particularly drastic example of a monetized API: If you want to exceed a limit of 25 connected accounts, you have to [become a Xero partner](https://developer.xero.com/documentation/xero-app-store/app-partner-guides/app-partner-steps/) and list your app in their app store. They will then take (as of the time of this writing) a 15% revenue cut from every lead generated from that store.
   Xero 是货币化 API 的一个特别激烈的例子：如果您想超过 25 个连接帐户的限制，您必须成为 Xero 合作伙伴并在他们的应用商店中列出您的应用程序。然后，他们将从该商店产生的每条销售线索中扣除 15% 的收入（截至撰写本文时）。
 
-## Problem 6: OAuth security is hard and a moving target <br>问题 6：OAuth 安全性很困难且目标不断变化
+## 问题 6：OAuth 安全性很困难且目标不断变化 <br>Problem 6: OAuth security is hard and a moving target
 
 As attacks have been uncovered, and the available web technologies have evolved, the OAuth standard has changed as well. If you’re looking to implement the current security best practices, the OAuth working group has a [rather lengthy guide](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics) for you. And if you’re working with an API that is still using OAuth 1.0a today, you realize that backwards compatibility is a never-ending struggle.
 随着攻击的被发现以及可用的 Web 技术的发展，OAuth 标准也发生了变化。如果您希望实施当前的安全最佳实践，OAuth 工作组为您提供了相当冗长的指南。如果您现在使用的 API 仍在使用 OAuth 1.0a，您就会意识到向后兼容性是一场永无休止的斗争。
@@ -230,7 +230,7 @@ In reality, when we implemented this we had to consider:
 - Some APIs will tell you the access token expiration time in absolute values. Others only in relative “seconds from now.” And some, like Salesforce, don’t divulge this kind of information easily.
   某些 API 会以绝对值形式告诉您访问令牌过期时间。其他的则仅在相对“从现在开始的几秒钟内”发生。有些公司（例如 Salesforce）不会轻易泄露此类信息。
 
-## Last but not least: Some things we haven’t talked about yet <br>最后但并非最不重要的一点：有些事情我们还没有讨论过
+## 最后但并非最不重要的一点：有些事情我们还没有讨论过 <br>Last but not least: Some things we haven’t talked about yet
 
 Sadly, we have only just scratched the surface of your OAuth implementation. Now that your OAuth flow runs and you get access tokens, it’s time to think about:
 遗憾的是，我们仅仅触及了 OAuth 实现的皮毛。现在您的 OAuth 流程已运行并且您获得了访问令牌，是时候考虑以下问题了：
@@ -250,7 +250,7 @@ Sadly, we have only just scratched the surface of your OAuth implementation. Now
 - Changes in available OAuth scopes, provider bugs, missing documentation, and so on.
   可用 OAuth 范围的更改、提供程序错误、缺少文档等。
 
-## A better way? <br>有更好的方法吗？
+## 有更好的方法吗？ <br>A better way?
 
 If you’ve read this far, you might be thinking, “There must be a better way!”
 如果您读到这里，您可能会想：“一定有更好的方法！”
