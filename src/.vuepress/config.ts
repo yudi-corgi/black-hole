@@ -13,6 +13,7 @@ export default defineUserConfig({
   
   theme,
 
+  // MD 配置
   markdown: {
     headers: {
       level: [1, 2, 3, 4]

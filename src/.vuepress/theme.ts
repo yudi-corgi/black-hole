@@ -47,8 +47,10 @@ export default hopeTheme({
   // 代码高亮
   // plugin.prismjs: false,
 
-  // 取消页面编辑
+  // 取消页面编辑、最后更新时间、编辑者
   editLink: false,
+  lastUpdated: false,
+  contributors: false,
 
   // 博客内容
   blog: {
