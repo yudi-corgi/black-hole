@@ -13,6 +13,12 @@ export default defineUserConfig({
   
   theme,
 
+  markdown: {
+    headers: {
+      level: [1, 2, 3, 4]
+    }
+  },
+
   // 搜索插件
   plugins: [
     searchProPlugin({
