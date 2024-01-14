@@ -61,12 +61,11 @@ export default navbar([
     link: "https://xiaolincoding.com/mysql/"
   },
   {
-    text: "框架",
+    text: "数据库",
     // icon: "mdi:electron-framework",
     icon: "icon-park:blocks-and-arrows",
     link: "https://xiaolincoding.com/mysql/"
   },
-  
   {
     text: "关于作者",
     icon: "openmoji:black-hole",

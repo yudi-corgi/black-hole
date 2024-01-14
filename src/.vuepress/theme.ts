@@ -41,7 +41,8 @@ export default hopeTheme({
   themeColor: true,
 
   // 页脚配置
-  footer: "<a href=\"https://github.com/yudi-corgi\">YUDI-Corgi</a>",
+  // footer: "<a href=\"https://github.com/yudi-corgi\">YUDI-Corgi</a>",
+  copyright: "Copyright © 2023-2024 by <a href=\"https://github.com/yudi-corgi\">YUDI-Corgi</a> | <a href='https://opensource.org/licenses/MIT'>MIT LICENSE</a>",
   displayFooter: true,
 
   // 代码高亮

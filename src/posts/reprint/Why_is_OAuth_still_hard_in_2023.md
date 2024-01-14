@@ -9,6 +9,7 @@ sticky: true
 category: 杂谈
 cover: /assets/images/minions_cover8.jpg
 icon: devicon-plain:oauth
+color: blue
 ---
 
 ## 写在前头
