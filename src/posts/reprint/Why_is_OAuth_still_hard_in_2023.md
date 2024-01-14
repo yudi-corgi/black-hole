@@ -13,7 +13,9 @@ icon: devicon-plain:oauth
 
 ## 写在前头
 
-本篇是 [Why is OAuth still hard in 2023?](https://www.nango.dev/blog/why-is-oauth-still-hard)一文的中文翻译（由[沉浸式翻译](https://immersivetranslate.com/)提供并优化了下排版），文章内容翔实，说明了 OAuth 的复杂性、安全性、实际应用困难等方面的问题。以下是太长不看版（由 AI 整理）：
+本篇是 [Why is OAuth still hard in 2023?](https://www.nango.dev/blog/why-is-oauth-still-hard) 一文的中文翻译（由[沉浸式翻译](https://immersivetranslate.com/)提供并优化了下排版），文章内容翔实，说明了 OAuth 的复杂性、安全性、实际应用困难等方面的问题。
+
+以下是太长不看版（由 AI 整理）：
 
 这篇文章讨论了为什么 OAuth 在 2023 年仍然难以实现。作者们通过为 50 个最受欢迎的 API 实现 OAuth 的经验得出结论，OAuth 实际应用中的体验类似于 2008 年的 JavaScript 浏览器 API。尽管有一个通用的共识关于如何实现 OAuth，但每个 API 实际上都有自己对标准的解释、实现上的怪癖、非标准行为和扩展。
 
@@ -85,7 +87,7 @@ If you think this still feels too complicated and like a lot to learn, we tend t
 Most teams building public APIs seem to agree as well. Instead of implementing a full OAuth 2.0 subset, they just implement the parts of OAuth they think they need for their API’s use case. This leads to pretty long pages in docs outlining how OAuth works for this particular API. But we have a hard time blaming them; they have only the best intentions in mind for their DX. And if they truly tried to implement the full standard, you’d need to read a small book!
 大多数构建公共 API 的团队似乎也同意这一点。他们没有实现完整的 OAuth 2.0 子集，而是只实现他们认为 API 用例所需的 OAuth 部分。这导致文档中出现相当长的页面来概述 OAuth 如何针对此特定 API 工作。但我们很难责怪他们；他们对 DX 的想法只有最好的。如果他们真的尝试实施完整的标准，您需要阅读一本小书！
 
-![The Salesforce authorization_code OAuth flow. What's not to like about a clear visual for this simple 10-step process? <br>Salesforce 授权代码 OAuth 流程。为什么不喜欢这个简单的 10 步流程的清晰视觉效果呢？](https://assets-global.website-files.com/63cb480c27e7bc98c7ec69cf/63f730a22a503d3c49cb51f2_Untitled.png)
+![The Salesforce authorization_code OAuth flow. What's not to like about a clear visual for this simple 10-step process? <br>Salesforce 授权代码 OAuth 流程。为什么不喜欢这个简单的 10 步流程的清晰视觉效果呢？](./images/oauth_hard1.png)
 
 The trouble is that everybody has a slightly different idea of which subset of OAuth is relevant for them, so you end up with lots of different (sub-) implementations.
 问题在于，每个人对于 OAuth 的哪个子集与他们相关的想法都略有不同，因此最终会得到许多不同的（子）实现。
@@ -131,7 +133,7 @@ As every API implements a different subset of OAuth, you quickly get into a situ
 We could go on for a long time, but we think you probably get the point by now.
 我们可以继续说很长时间，但我们认为您现在可能已经明白了要点。
 
-![OAuth is too complex; let’s make a simpler version of OAuth that has everything we need! ©XKCD<br>OAuth太复杂；让我们制作一个更简单的 OAuth 版本，其中包含我们需要的一切！ ©XKCD](https://assets-global.website-files.com/63cb480c27e7bc98c7ec69cf/63f7310639759c5c1a13a423_Untitled.png)
+![OAuth is too complex; let’s make a simpler version of OAuth that has everything we need! ©XKCD<br>OAuth太复杂；让我们制作一个更简单的 OAuth 版本，其中包含我们需要的一切！ ©XKCD](./images/oauth_hard2.png)
 
 ## 问题 3：许多 API 向 OAuth 添加非标准扩展 <br>Problem 3: Many APIs add nonstandard extensions to OAuth
 
@@ -171,7 +173,7 @@ You could argue that OAuth is a standard and that there are docs for every API, 
 A lot. I cannot tell you how often the docs are wrong. Or missing a detail. Or have not been updated for the latest change. Or you missed something when you first looked at them. A good 80% of the OAuth flows we implement have some problem upon first implementation and require debugging.
 很多。我无法告诉你文档出错的频率有多少。或者遗漏了一个细节。或者尚未更新最新的更改。或者当你第一次看到它们时你错过了一些东西。我们实现的 OAuth 流程中有 80% 在首次实现时都存在一些问题，需要调试。
 
-![How did Randall observe me while I was debugging OAuth flows? ©XKCD<br>当我调试 OAuth 流程时，Randall 如何观察我？ ©XKCD](https://assets-global.website-files.com/63cb480c27e7bc98c7ec69cf/63f73156e6f799d425272378_Untitled.png)
+![How did Randall observe me while I was debugging OAuth flows? ©XKCD<br>当我调试 OAuth 流程时，Randall 如何观察我？ ©XKCD](./images/oauth_hard3.png)
 
 Some flows also break for, what seem to be, random reasons: LinkedIn OAuth, for instance, breaks if you pass in PKCE parameters. The error you get? “client error - invalid OAuth request.” That is … telling? It took us an hour to understand that passing in (optional, usually disregarded) PKCE parameters is what breaks the flow.
 有些流程也会因随机原因而中断：例如，如果您传入 PKCE 参数，LinkedIn OAuth 就会中断。你得到的错误是？ “客户端错误 - OAuth 请求无效。”这就是……告诉我们？我们花了一个小时才明白传入（可选的，通常被忽略的）PKCE 参数是破坏流程的原因。
@@ -187,7 +189,7 @@ The truth is, if you build toward some other system by using their API, you’re
 To be fair, many APIs are liberal and provide easy self-service signup flows for developers to register their apps and start using OAuth. But some of the most popular APIs out there require reviews before your app becomes public and can be used by any of their users. Again, to be fair, most review processes are sane and can be completed in a few days. They’re probably a net gain in terms of security and quality for end users.
 公平地说，许多 API 都是自由的，并为开发人员提供简单的自助注册流程来注册他们的应用程序并开始使用 OAuth。但一些最流行的 API 在您的应用程序公开并可供任何用户使用之前需要经过审核。再次强调，公平地说，大多数审核流程都是合理的，并且可以在几天内完成。对于最终用户来说，它们可能在安全性和质量方面带来净收益。
 
-![](https://assets-global.website-files.com/63cb480c27e7bc98c7ec69cf/63f7318d0ef63f72db1dacd6_Untitled.png)
+![](./images/oauth_hard4.png)
 
 But some notorious examples can take months to complete, and some even require you to enter into revenue-share agreements:
 但一些臭名昭著的例子可能需要几个月的时间才能完成，有些甚至要求您签订收入分成协议：
@@ -211,7 +213,7 @@ As attacks have been uncovered, and the available web technologies have evolved,
 Luckily, security is getting better with every iteration, but it often comes at the cost of more work for developers. The upcoming OAuth 2.1 standard will make some current best practices mandatory and includes mandatory PKCE (today only a handful of APIs require this) and additional restrictions for refresh tokens.
 幸运的是，安全性随着每次迭代而变得越来越好，但这通常是以开发人员付出更多工作为代价的。即将推出的 OAuth 2.1 标准将强制执行一些当前的最佳实践，并包括强制的 PKCE（目前只有少数 API 需要此）以及刷新令牌的附加限制。
 
-![At least OAuth already implements a two-factor auth model. ©XKCD<br>至少 OAuth 已经实现了双因素身份验证模型。 ©XKCD](https://assets-global.website-files.com/63cb480c27e7bc98c7ec69cf/63f731abb76b0c74fb6f74ee_Untitled.png)
+![At least OAuth already implements a two-factor auth model. ©XKCD<br>至少 OAuth 已经实现了双因素身份验证模型。 ©XKCD](./images/oauth_hard5.png)
 
 The biggest change has probably been ushered in with expiring access tokens and the rise of refresh tokens. On the surface, the process seems simple: Whenever an access token expires, refresh it with the refresh token and store the new access token and refresh token.
 最大的变化可能是随着访问令牌的过期和刷新令牌的兴起而带来的。从表面上看，该过程似乎很简单：每当访问令牌过期时，使用刷新令牌刷新它并存储新的访问令牌和刷新令牌。
