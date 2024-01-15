@@ -19,7 +19,7 @@ export default hopeTheme({
   // 图标网站：https://icon-sets.iconify.design/
   iconAssets: "iconify",
 
-  logo: "/bgDark.png",
+  logo: "/logo.png",
 
   // 仓库
   repo: "yudi-corgi",
