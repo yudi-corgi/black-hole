@@ -113,7 +113,7 @@ export default hopeTheme({
   plugins: {
     blog: true,
 
-    // 评论（暂时关闭）
+    // 评论（暂时关闭 ~）
     comment: {
       // You should generate and use your own comment service
       comment: false,
