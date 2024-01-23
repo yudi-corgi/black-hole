@@ -23,30 +23,30 @@ isOriginal: true
 ```java
 public abstract class TransactionSynchronizationAdapter implements TransactionSynchronization, Ordered {
 
-    // 事务同步回调顺序，当存在多个事务同步且有顺序要去时可指定
+	// 事务同步回调顺序，当存在多个事务同步且有顺序要去时可指定
 	@Override
 	public int getOrder() {
 		return Ordered.LOWEST_PRECEDENCE;
 	}
-    // 事务挂起
+	// 事务挂起
 	@Override
 	public void suspend() { }
-    // 事务回复
+	// 事务回复
 	@Override
 	public void resume() { }
-    // 底层数据会话刷新，需要事务管理器有刷新概念，否则无操作
+	// 底层数据会话刷新，需要事务管理器有刷新概念，否则无操作
 	@Override
 	public void flush() { }
-    // 事务提交前
+	// 事务提交前
 	@Override
 	public void beforeCommit(boolean readOnly) { }
-    // 事务完成前（包括异常回滚）
+	// 事务完成前（包括异常回滚）
 	@Override
 	public void beforeCompletion() { }
-    // 事务提交后
+	// 事务提交后
 	@Override
 	public void afterCommit() { }
-    // 事务完成后（包括异常回滚）
+	// 事务完成后（包括异常回滚）
 	@Override
 	public void afterCompletion(int status) { }
 }
@@ -121,17 +121,17 @@ public class TxController {
 @EventListener
 public @interface TransactionalEventListener {
     
-    // 指定事务阶段
+	// 指定事务阶段
 	TransactionPhase phase() default TransactionPhase.AFTER_COMMIT;
-    // 不存在事务时，注解的方法是否依然被调用，true 则表示只要事件发布了就回调
+	// 不存在事务时，注解的方法是否依然被调用，true 则表示只要事件发布了就回调
 	boolean fallbackExecution() default false;
-    // ...
+	// ...
 	@AliasFor(annotation = EventListener.class, attribute = "classes")
 	Class[] value() default { };
-    // 指定感兴趣的事件类名
+	// 指定感兴趣的事件类名
 	@AliasFor(annotation = EventListener.class, attribute = "classes")
 	Class[] classes() default { };
-    // 事务回调的条件，可通过 SpEL 进行编写
+	// 事务回调的条件，可通过 SpEL 进行编写
 	String condition() default "";
 }
 
