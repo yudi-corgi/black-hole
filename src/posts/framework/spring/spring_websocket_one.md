@@ -21,7 +21,7 @@ icon: logos:websocket
 1. 使用 Jakarta EE 规范提供的 API
 2. 使用 Spring 本身提供的模块依赖
 
-本篇是 Spring Boot 整合 WebSocket 系列的第一篇，介绍第一种方式。
+本篇是 Spring Boot 整合 WebSocket 系列的第一篇，介绍第一种方式（若对 Spring WebSocket 模块感兴趣，可直跳 [WebSocket 集成（二）](./spring_websocket_two.md)）。
 
 > **题外话**：Jakarta EE 前身是 Java EE，因为后者在 2017 年被 Oracle 公司捐赠给了 Eclipse Foundation，之后 2018 年 Eclipse 基金会便发布了 Jakarta EE 9，之所以改名，是因为「**Java**」这个名字的商标归 Oracle 所有，Eclipse 基金会无法继续使用 `javax.*`、`java.*`等名称，因此将其改为「**Jakarta（雅加达）**」，而 Spring Boot 从 3.x 开始便从 Java EE 切换到了 Jakarta EE。值得一提的是，**Jakarta**（雅加达）是 **Java** 岛（爪洼岛）上最大的城市，也是印度尼西亚的首都，而 Apache 软件基金会也有名为 Jakarta 的项目，但两者没有任何关系。
 
