@@ -15,7 +15,7 @@ icon: tabler:blade
 
 本篇是 [Sharded Does Not Imply Distributed](https://medium.com/@magda7817/sharded-does-not-imply-distributed-572fdafc4040) 一文的翻译。对于后端人员来说，分片的概念并不陌生，诸如 ElasticSearch、Redis、MySQL 等数据库都有针对于分片的实现方案来解决某些业务场景。文中对数据库分片与分布式数据库的主要区别做了说明，但请注意：**分片数据库也是分布式系统**。
 
-以下是太长不看版（由 AI 整理）：
+**以下是太长不看版（由 AI 整理）**：
 
 文章《分片并不意味着分布式》主要讨论了数据库分片（Sharding）与分布式数据库（Distributed Databases）之间的区别：
 

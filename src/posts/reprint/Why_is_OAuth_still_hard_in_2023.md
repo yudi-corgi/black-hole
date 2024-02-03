@@ -16,7 +16,7 @@ color: blue
 
 本篇是 [Why is OAuth still hard in 2023?](https://www.nango.dev/blog/why-is-oauth-still-hard) 一文的中文翻译（由[沉浸式翻译](https://immersivetranslate.com/)提供并优化了下排版），文章内容翔实，说明了 OAuth 的复杂性、安全性、实际应用困难等方面的问题。
 
-以下是太长不看版（由 AI 整理）：
+**以下是太长不看版（由 AI 整理）**：
 
 这篇文章讨论了为什么 OAuth 在 2023 年仍然难以实现。作者们通过为 50 个最受欢迎的 API 实现 OAuth 的经验得出结论，OAuth 实际应用中的体验类似于 2008 年的 JavaScript 浏览器 API。尽管有一个通用的共识关于如何实现 OAuth，但每个 API 实际上都有自己对标准的解释、实现上的怪癖、非标准行为和扩展。
 
