@@ -10,6 +10,7 @@ sticky: true
 category: Spring
 cover: /assets/images/minions_cover10.jpg
 icon: logos:websocket
+isOriginal: true
 ---
 
 ## 介绍

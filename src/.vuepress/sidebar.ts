@@ -26,6 +26,13 @@ export default sidebar({
       collapsible: true
     },
     {
+      text: "分布式领域",
+      icon: "book",
+      prefix: "posts/distribute/",
+      children: "structure",
+      collapsible: true
+    },
+    {
       text: "开发技巧",
       icon: "book",
       prefix: "posts/dev_experience/",
