@@ -43,7 +43,7 @@ public class SampleApplication {
 }
 ```
 
-一个 Stream 程序在导入依赖后，使用上方代码即可实现消息的消息，它默认会创建以函数名称为 name 的绑定，例如 demoConsumer-in-0 。Stream 在绑定名称方面有默认的约定，在 Spring 上下文中，会检查 `Function`、`Supplier`、`Consumer` 这类 Bean 注册为消息处理器，这些消息处理器会触发绑定到所提供的 Binder 所公开的目的地（**destination**，即 Topic-Kafka、Exchange-RabbitMQ）。
+一个 Stream 程序在导入[依赖](#dependencies)后，使用上方代码即可实现消息的消息，它默认会创建以函数名称为 name 的绑定，例如 demoConsumer-in-0 。Stream 在绑定名称方面有默认的约定，在 Spring 上下文中，会检查 `Function`、`Supplier`、`Consumer` 这类 Bean 注册为消息处理器，这些消息处理器会触发绑定到所提供的 Binder 所公开的目的地（**destination**，即 Topic-Kafka、Exchange-RabbitMQ）。
 
 绑定名称约定如下：
 
@@ -145,7 +145,7 @@ public class CustomChannelInterceptor {
 }
 ```
 
-### 三种函数基础示例
+### 三种函数基础示例{#dependencies}
 
 ```xml
 <!-- Maven 依赖，由 Spring Cloud 官方提供，按需导入即可 -->
