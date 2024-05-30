@@ -70,7 +70,7 @@ spring.cloud.stream.bindings.uppercase-in-0.destination: my-topic
 spring.cloud.stream.bindings.uppercase-in-0.group: my-queue
 ```
 
-## 消息输入/输出
+## 消息输入/输出{#dynamic-destination}
 
 **StreamBridge**：一个允许用户将数据发送到输出绑定的类，在 Stream 程序的常见场景中，消息是很少需要用户手动发送，即消息应当是在 Stream 程序上下文中产生并自动发送，而当数据源是在 Stream 程序之外（比如 REST 端点被调用后产生的数据要发送到目标绑定），则可使用该类进行手动发送。
 
