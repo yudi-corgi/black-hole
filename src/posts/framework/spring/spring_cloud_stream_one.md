@@ -401,6 +401,15 @@ public class DemoController {
 }
 ```
 
+### 消费者多线程并发消费
+
+```properties
+# 消息消费的并发线程数，默认 1，交换机类型为 direct 时不可用，线程名称：{group}-{1..count}
+spring.cloud.stream.bindings.{function-name}.consumer.concurrency: 2
+```
+
+在执行函数中可以通过打印线程名称看到效果。
+
 ## 小结
 
-Spring Cloud Stream 系列的第一篇就到此结束，先入门 Stream 的基础概念和基础使用方式，后续的文章再继续讲解关于死信、延迟、多 MQ Binder 等的配置与使用。
+Spring Cloud Stream 系列的第一篇就到此结束，先理解 Stream 的概念和基础使用方式，后续的文章再继续讲解关于死信、延迟、多 Binder 等的配置与使用。
