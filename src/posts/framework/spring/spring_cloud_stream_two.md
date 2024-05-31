@@ -164,7 +164,7 @@ public class DemoController {
 }
 ```
 
-![控制台信息](./images/Stream-IDEA控制台.jpg)
+![控制台信息](./images/stream2-IDEA控制台.jpg)
 
 ## 死信队列
 
@@ -371,7 +371,7 @@ public class SendController {
 
 当启动服务后调用接口就会看到控制台打印如下：
 
-![控制台信息](./images/stream-IDEA控制台信息.png)
+![控制台信息](./images/stream2-IDEA控制台信息2.png)
 
 查看 RabbitMQ GUI 也能看到队列已绑定 DLX：
 
@@ -440,7 +440,7 @@ public class SendController {
 }
 ```
 
-![控制台输出](./images/stream-IDEA控制台信息2.jpg)
+![控制台输出](./images/stream2-IDEA控制台信息3.jpg)
 
 同样需要注意，StreamBridge 发送消息时要指定输出绑定或者动态目的地，而不能是输入绑定，否则延迟功能失效。
 
