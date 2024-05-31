@@ -29,7 +29,7 @@ Stream 程序由一个与中间件中立的核心组成，程序通过外部 Bro
 
 ![Binder 消息通讯](./images/Binder消息通讯.png)
 
-## Bindings 绑定
+## Bindings 绑定{#BindingName}
 
 ```java
 @SpringBootApplication
@@ -50,7 +50,7 @@ public class SampleApplication {
 - input（输入绑定，即消费者）：`<functionName> + in + <index>`
 - output（输出绑定，即生产者）：`<functionName> + out + <index>`
 
-`functionName` 即定义的函数式处理器 Bean 名称，`in/out` 分别对应绑定类型（输入/输出），`index` 是绑定的索引，对于单输入/输出函数，它始终为 0，它仅与**具有多个输入/输出参数的函数**（多通道）相关。
+`functionName` 即定义的函数式处理器 Bean 名称，`in/out` 分别对应绑定类型（输入/输出），`index` 是绑定的索引，对于单输入/输出函数，它始终为 0，它仅与**具有多个输入/输出参数的函数**相关。
 
 函数的作用：
 
