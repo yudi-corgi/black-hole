@@ -315,8 +315,16 @@ public class DemoController {
 
 ## 总结
 
-关于 Spring Cloud Stream 的概念、功能、使用就介绍到这。在如今的生产项目中，微服务架构、分布式系统大行其道，MQ 的使用早已是家常便饭，而能有这么一款框架适配了如此之多的主流消息中间件，建立统一抽象，简化使用方式，并提供新功能，无疑是给开发者带来颇多帮助，提升了 MQ 使用效率。
+关于 Spring Cloud Stream 的概念、功能、使用就介绍到这，相信系列三篇文章看下来大家对 Spring Cloud Stream 的使用也就没有大问题了。在如今的生产项目中，微服务架构、分布式系统大行其道，MQ 的使用早已是家常便饭，而能有这么一款框架适配了如此之多的主流消息中间件，建立统一抽象，简化使用方式，并提供新功能，无疑是给开发者带来颇多帮助，提升了 MQ 使用效率。
 
 当然，Spring Cloud Stream 对于各个消息中间件的适配，最终原理还是基于 Spring 本身对消息中间件的支持与集成，所以还是要求大家对使用的消息中间件本身有一定的理解和使用经验。
 
 OVER!😄
+
+## 参考资料
+
+- 官方文档：[分区](https://docs.spring.io/spring-cloud-stream/reference/spring-cloud-stream/overview-partitioning.html)
+
+- 官方文档：[具有多输入/输出参数的函数](https://docs.spring.io/spring-cloud-stream/reference/spring-cloud-stream/producing-and-consuming-messages.html#functions-with-multiple-input-and-output-arguments)
+
+  
