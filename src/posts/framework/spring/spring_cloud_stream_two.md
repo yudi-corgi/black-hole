@@ -375,7 +375,7 @@ public class SendController {
 
 查看 RabbitMQ GUI 也能看到队列已绑定 DLX：
 
-![GUI 信息](./images/GUI队列信息.png)
+![GUI 队列信息](./images/GUI队列信息.png)
 
 ## 延迟队列
 

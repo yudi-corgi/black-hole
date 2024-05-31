@@ -129,7 +129,7 @@ spring.cloud.stream.bindings.partitionedConsumer-in-0.consumer.instance-index=1
 
 在 GUI 平台上也可以看到交换机绑定了两个队列：
 
-![GUI 信息](./images/GUI交换机信息.jpg)
+![GUI 交换机信息](./images/GUI交换机信息.png)
 
 ### 自定义分区策略
 
