@@ -31,6 +31,8 @@ export default hopeTheme({
   navbar,
   // 侧边栏
   sidebar,
+  // 文章按日期升序排序
+  sidebarSorter: "date",
 
   // navbarLayout
   // navbarLayout: {
