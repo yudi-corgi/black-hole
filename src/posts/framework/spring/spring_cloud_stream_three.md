@@ -281,7 +281,7 @@ spring:
           group: gather-consumer-queue
 ```
 
-StreamBridge 发送消息时，则是必须向两个输入绑定都发送消息，才能触发函数执行：
+StreamBridge 发送消息时，则是必须向两个输入绑定都发送了消息，才能触发函数执行：
 
 ```java
 @RestController

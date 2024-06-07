@@ -247,7 +247,7 @@ public class MQHandler {
 这里有两个需要特别注意的点：
 
 - 首先必须设置 `acknowledge-mode=manual`，才能在 `MessageHeader` 中获取到 `amqp_channel` 属性信息；
-- 其次，使用 **StreamBridge** 发送消息时不能指定输入绑定去发送消息，必须指定其输出绑定或者采用[动态目的地](./spring_cloud_stream_one.md#dynamic-destination)的方式，否则获取到的 `MessageHeaders` 将只包含基础信息而已。
+- 其次，使用 **StreamBridge** 发送消息时不能指定输入绑定去发送消息，必须指定其输出绑定或者采用[动态目的地](./spring_cloud_stream_one.md#dynamic-destination)的方式，否则获取到的 `MessageHeaders` 将只包含基础信息而已（原因在[第一篇](./spring_cloud_stream_one.md/#dynamic-destination)就已经提到了）。
 
 ```java
 // 无法生效
@@ -446,9 +446,13 @@ public class SendController {
 
 ## 小结
 
-本篇所描述的 Binder、RabbitMQ 死信/延迟队列的配置使用其实都不难理解。而对于向死信、延迟队列发送消息时不能指定输入绑定的问题，若读者对原因感兴趣，可以追踪源码，看看 `StreamBridge#send` 方法的流程都做了些什么事情，并且 Stream 也为 Kafka 提供了 DLX 配置，这些功能都帮助开发者简化了 MQ 的日常使用和配置，实属一大利器。
+本篇所描述的 Binder、RabbitMQ 死信/延迟队列的配置使用其实都不难理解。
 
-系列第一、二篇都是讲述 Stream 如何简化配置、使用 MQ 本身所拥有的功能，下一篇将介绍 Stream 自己所实现的功能特性：分区与多输入/输出参数函数实现。
+Binder 体现了 Stream 的真正强大之处——它抽象了底层 MQ 的复杂配置和操作，提供了统一的接口和 API，使得开发者能够轻松地在不同的 MQ 系统间切换，而无需深陷于每种 MQ 特有的实现细节。死信队列和延迟队列作为 RabbitMQ 的高级功能，在 Stream 的帮助下，其配置也变得直观而简洁。
+
+此外，不只是 RabbitMQ，Stream 也为 Kafka 提供了 DLX 配置，若读者对于 Kafka 死信队列是如何实现的感兴趣，也可以追踪源码看看 `StreamBridge#send` 方法的执行流程，探索实现细节。
+
+到目前为止，系列第一、二篇都是讲述 Stream 如何简化配置、使用 MQ 本身所拥有的功能，下一篇将介绍 Stream 自己的独特功能：**分区、多输入/输出参数函数实现**。
 
 
 
