@@ -93,7 +93,7 @@ public class SendController {
 }
 ```
 
-首先需要说明一点，在微服务架构下，生产者和消费者一般不会在同一个服务里（若是还有必要用 MQ 吗？😀），因此，正常情况是会将输入绑定放在消费者服务，而在生产者服务里配置中添加一个输出绑定，并指定相应的 `destination`，如下配置。这样在生产者服务中使用 `StreamBridge` 发送消息时就指定输出绑定名称即可，会自动寻找到对应的 `destination` 进行消息路由。
+首先需要说明一点，在微服务架构下，生产者和消费者一般不会在同一个服务里，因此，正常情况是会将输入绑定放在消费者服务，而在生产者服务里配置中添加一个输出绑定，并指定相应的 `destination`，如下配置。这样在生产者服务中使用 `StreamBridge` 发送消息时就指定输出绑定名称即可，会自动寻找到对应的 `destination` 进行消息路由。
 
 ```yaml
 # 生产者服务
@@ -113,7 +113,19 @@ spring:
           group: consumer-queue
 ```
 
-不过还有一种 **动态目的地** 方式，那就是在省去生产者的输出绑定配置后，使用 StreamBridge 发送消息时不指定绑定名称，而是直接指定 `destination`，如：`streamBridge.send("consumer-topic", msg);`，它的本质是在没有检测对应的绑定名称时，会根据指定的 `destination` 动态创建输入/输出绑定，而由于消费者服务已经有该 `destination` 的输入绑定，那么发送至该 `destination` 的消息自然就会被消费者消费了。
+当然你依然可以不配置输出绑定，直接向输入绑定发送消息，只是这样子，你将会在 IDEA 控制台看到一条警告日志：
+
+![](./images/IDEA控制台警告.png)
+
+这是 Stream 源码里打印的日志，意思就是说不推荐直接向输入绑定发送消息，因为这绕过了 Binder 的某些功能和机制，可能会引发一些问题或限制。这些问题可能包括：
+
+- **缺乏一致性配置管理**：Binder 提供了集中化的配置管理，允许通过配置文件统一管理消息通道的配置。绕过 Binder 意味着开发者需要手动管理这些配置，可能导致配置不一致的问题；
+- **失去某些特性**：绑定器提供了很多高级特性，如消息转换、错误处理、重试机制等。绕过绑定器意味着可能无法利用这些特性，必须自己实现类似的功能；
+- **可维护性和可读性降低**：使用 Binder 可以让代码结构更加清晰和一致，方便维护和阅读，绕过 Binder 可能会让代码变得更加复杂和难以理解。
+
+简单说，就是输入、输出绑定都会有各自的配置，而直接向输入绑定发送消息，那么输出绑定的配置就不会被检测执行，这一点在本篇下面提到的[交换机路由键配置](#routing-key-config)后发送消息会有体现，而在[第二篇](./spring_cloud_stream_two.md)介绍的死信、延迟队列消息发送与消费也是如此。
+
+还有一种 **动态目的地** 方式，那就是在省去生产者的输出绑定配置后，使用 StreamBridge 发送消息时不指定绑定名称，而是直接指定 `destination`，如：`streamBridge.send("consumer-topic", msg);`，它的本质是在没有检测对应的绑定名称时，会根据指定的 `destination` 动态创建输入/输出绑定，而由于消费者服务已经有该 `destination` 的输入绑定，那么发送至该 `destination` 的消息自然就会被消费者消费了。
 
 ### 通道拦截器
 
@@ -326,7 +338,7 @@ spring:
               cron: 0/1 * * * * ?         # CRON 表达式指定发送周期，比 fixed-delay 优先级更高
 ```
 
-### 交换机类型、路由键配置
+### 交换机类型、路由键配置{#routing-key-config}
 
 Stream 根据绑定信息所创建的交换机默认都为 `Topic`，且路由键匹配规则为 `#`，也就是匹配全部，若想指定自己的路由键（一个交换机绑定多个队列时），则按如下方式：
 
@@ -395,6 +407,7 @@ public class DemoController {
     public void send() {
         Message<String> msg = MessageBuilder.withPayload(name)
                 .setHeader("type", "string-consumer-key").build();
+        // 记得是向输出绑定发送消息哦，直接向输入绑定发送消息是不会携带路由键的
         streamBridge.send("demoConsumer-out-0", msg, MimeType.valueOf("application/json"));
     }
     
