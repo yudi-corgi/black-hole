@@ -52,8 +52,11 @@ export default navbar([
   {
     text: "精选文章",
     icon: "fluent-emoji-flat:star",
-    prefix: "/posts/framework/spring/",
-    children: ["spring_transaction_synchronization.md"]
+    // prefix: "/posts/framework/spring/",
+    children: [
+      "/posts/framework/spring/spring_transaction_synchronization.md", 
+      "/posts/java/java-string.md"
+    ]
   },
   {
     text: "Java",

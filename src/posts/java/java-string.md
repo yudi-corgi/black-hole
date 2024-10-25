@@ -1,6 +1,6 @@
 ---
 lang: zh-CN
-title: Java String 字符串详解
+title: 深入浅出 String 字符串
 description: 讲述 String 的结构、JVM 中的存储方式以及关联的信息
 tag: 
   - Java
